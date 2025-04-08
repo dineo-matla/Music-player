@@ -259,7 +259,7 @@ button:focus,
 
 .playlist-song {
   display: flex;
-  height: 55px;
+  height: 5px;
   justify-content: space-between;
   align-items: center;
   padding: 5px;
@@ -302,18 +302,19 @@ button:focus,
   font-size: 0.85rem;
   width: 241px;
   text-align: left;
+  margin-left: 8px;
 }
 
 .playlist-song-artist {
   font-size: 0.725rem;
-  width: 80px;
+  width: 110px;
 }
 
 .playlist-song-duration {
   font-size: 0.725rem;
   margin: auto;
   font-family: var(--font-headline);
-  width: 30px;
+  width: 90px;
 }
 
 .playlist-song-delete {
