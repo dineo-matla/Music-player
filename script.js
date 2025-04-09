@@ -69,7 +69,7 @@ const renderSongs = (array) => {
     .map((song) => {
       return `<li id="song-${song.id}" class="playlist-song"></li>
 
-<button class = "playlist-song-info"><span class ="playlist-song-title">${song.title}
+<button onclick="playSong(${song.id})" class = "playlist-song-info"><span class ="playlist-song-title">${song.title}
 </span><span class = "playlist-song-artist">${song.artist}</span>
 <span class="playlist-song-duration">${song.duration}</span>
 </button>
@@ -78,7 +78,13 @@ const renderSongs = (array) => {
     .join("");
   playlistSongs.innerHTML = songsHTML;
 };
-renderSongs(sortSongs());
+playButton.addEventListener("click", () => {
+  if (userData?.currentSong === null) {
+    playSong(userData?.songs[0].id);
+  } else {
+    playSong(userData?.currentSong.id);
+  }
+});
 
 const sortSongs = () => {
   userData?.songs.sort((a, b) => {
@@ -91,4 +97,21 @@ const sortSongs = () => {
     return 0;
   });
   return userData?.songs;
+};
+renderSongs(sortSongs());
+
+const playSong = (id) => {
+  const song = userData?.songs.find((song) => song.id === id);
+  audio.src = song.src;
+  audio.title = song.title;
+
+  if (userData?.currentSong === null || userData?.currentSong.id !== song.id) {
+    audio.currentTime = 0;
+  } else {
+    audio.currentTime = userData?.songCurrentTime;
+  }
+  userData.currentSong = song;
+  playButton.classList.add("playing");
+
+  audio.play();
 };
