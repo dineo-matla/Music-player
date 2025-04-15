@@ -1,4 +1,4 @@
-# 🎵 Web Player App
+# 🎵 Web Player App - SoundSpace
 
 A sleek, minimal music player built using vanilla JavaScript, HTML, and CSS. This app allows users to play, pause, shuffle, and manage a playlist of royalty-free tracks with an intuitive and accessible UI.
 
